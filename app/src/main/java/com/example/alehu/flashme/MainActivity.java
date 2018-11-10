@@ -1,8 +1,10 @@
 package com.example.alehu.flashme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,6 +12,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        findViewById(R.id.addButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AddCardActivity.class);
+                MainActivity.this.startActivityForResult(intent,100);
+            }
+        });
 
         //If the Question is showing, then clicking the Question will show the Answer
         findViewById(R.id.flashcard_question).setOnClickListener(new View.OnClickListener() {
@@ -56,4 +67,19 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 100) { // this 100 needs to match the 100 we used when we called startActivityForResult!
+            String string1 = data.getExtras().getString("newQuestion"); // 'string1' needs to match the key we used when we put the string in the Intent
+            String string2 = data.getExtras().getString("newAnswer");
+
+            //Set text
+            TextView newQuestionCard = findViewById(R.id.flashcard_question);
+            newQuestionCard.setText(string1);
+            TextView newAnswerCard = findViewById(R.id.flashcard_answer);
+            newAnswerCard.setText(string2);
+        }
+    }
+
 }
