@@ -14,8 +14,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="save_button" />
-                            <entry key="sourceFile" value="C:\Users\alehu\Documents\School\Fall 2018\CodePath\iconmonstr-save-1.svg" />
+                            <entry key="outputName" value="ic_iconmonstr_arrow_25" />
+                            <entry key="sourceFile" value="C:\Users\alehu\Documents\School\Fall 2018\CodePath\iconmonstr-arrow-25.svg" />
                           </map>
                         </option>
                       </PersistentState>
